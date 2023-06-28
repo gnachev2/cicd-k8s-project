@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Build and Push Docker Image') {
       environment {
-        DOCKER_IMAGE = "gnachev/nginx-image:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "gnachev/hello-world:${BUILD_NUMBER}"
         // DOCKERFILE_LOCATION = "nginx-docker-build/Dockerfile"
         REGISTRY_CREDENTIALS = credentials('docker-credentials')
       }
