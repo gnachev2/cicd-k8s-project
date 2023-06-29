@@ -13,7 +13,7 @@ This is a custom CICD project for automated build and deployment of a simple ngi
   - [Jenkins](https://www.jenkins.io/doc/book/installing/linux/)
   - [Docker](https://docs.docker.com/desktop/install/ubuntu/#install-docker-desktop)
   - [ArgoCD](https://operatorhub.io/operator/argocd-operator)
-  - [SealedSecrets] (https://github.com/bitnami-labs/sealed-secrets)
+  - [SealedSecrets](https://github.com/bitnami-labs/sealed-secrets)
 
 ```bash
 
@@ -37,6 +37,7 @@ sudo apt-get install jenkins
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 # Install the "Docker Pipeline" Jenkins plugin
+# Install the "Git Plugin" Jenkins plugin
 
 # Install Docker
 
