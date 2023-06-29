@@ -5,7 +5,7 @@ This is a custom CICD project for automated build and deployment of a simple ngi
 ## Prerequisites and dependencies:
 
  - A host (Linux/Windows) with pre-installed Jenkins, Docker and any CD application (in our case Ubuntu EC2 instance + ArgoCD) 
- - A clean kubernetes cluster + deployed ingress controller and metrics-server (minikube does the job just fine) and Helm
+ - A clean kubernetes cluster + deployed ingress controller, metrics-server, Helm and kubeseal
  - A custom-built docker image with docker and git to server as and Jenkins Agent for the Jenkins pipel
 ##    
 * All of the following steps are assuming and Ubuntu EC2 instance as a host for the CICD
@@ -13,6 +13,7 @@ This is a custom CICD project for automated build and deployment of a simple ngi
   - [Jenkins](https://www.jenkins.io/doc/book/installing/linux/)
   - [Docker](https://docs.docker.com/desktop/install/ubuntu/#install-docker-desktop)
   - [ArgoCD](https://operatorhub.io/operator/argocd-operator)
+  - [SealedSecrets] (https://github.com/bitnami-labs/sealed-secrets)
 
 ```bash
 
@@ -58,4 +59,7 @@ kubectl create -f https://operatorhub.io/install/argocd-operator.yaml
 
 kubectl get csv -n operators
 
+# Deploy the SealedSecrets helm chart
+
+helm install sealed-secrets -n kube-system --set-string fullnameOverride=sealed-secrets-controller sealed-secrets/sealed-secrets
 ```
