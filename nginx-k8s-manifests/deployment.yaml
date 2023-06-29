@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nginx-deploy
-        image: gnachev/hello-world:1
+        image: gnachev/hello-world:TAG
         livenessProbe:
           exec:
             command:
@@ -40,8 +40,8 @@ spec:
         - containerPort: 80
         resources:
           limits:
+            cpu: 512m
+            memory: 256Mi
+          requests:
             cpu: 256m
             memory: 128Mi
-          requests:
-            cpu: 128m
-            memory: 96Mi
